@@ -1,35 +1,27 @@
-function convertToRoman() {
-  let num = parseInt(document.getElementById("numberInput").value);
+function convertToRoman(num) {
+  if (num <= 0) return "";
 
-  if (isNaN(num) || num <= 0 || num > 100000) {
-    document.getElementById("result").innerText = "Result: Invalid input. Please enter a number between 1 and 100000.";
-    return;
-  }
-
-  const romanNumerals = [
-    ['M', 1000],
-    ['CM', 900],
-    ['D', 500],
-    ['CD', 400],
-    ['C', 100],
-    ['XC', 90],
-    ['L', 50],
-    ['XL', 40],
-    ['X', 10],
-    ['IX', 9],
-    ['V', 5],
-    ['IV', 4],
+  const romanMap = [
+    ['M', 1000], ['CM', 900],
+    ['D', 500], ['CD', 400],
+    ['C', 100], ['XC', 90],
+    ['L', 50], ['XL', 40],
+    ['X', 10], ['IX', 9],
+    ['V', 5], ['IV', 4],
     ['I', 1]
   ];
 
   let result = "";
-
-  for (let [symbol, value] of romanNumerals) {
+  for (let [roman, value] of romanMap) {
     while (num >= value) {
-      result += symbol;
+      result += roman;
       num -= value;
     }
   }
 
-  document.getElementById("result").innerText = `Result: ${result}`;
+  return result;
 }
+
+// Do not change the code below
+const num = parseInt(prompt("Enter a number:"));
+alert(convertToRoman(num));
