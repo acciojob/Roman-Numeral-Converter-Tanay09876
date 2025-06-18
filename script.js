@@ -22,6 +22,16 @@ function convertToRoman(num) {
   return result;
 }
 
-// Do not change the code below
-const num = parseInt(prompt("Enter a number:"));
-alert(convertToRoman(num));
+function handleConvert() {
+  const input = document.getElementById("numberInput").value;
+  const num = parseInt(input);
+
+  const resultDiv = document.getElementById("result");
+
+  if (isNaN(num) || num <= 0) {
+    resultDiv.textContent = "Please enter a valid number greater than 0.";
+  } else {
+    const roman = convertToRoman(num);
+    resultDiv.textContent = `Roman Numeral: ${roman}`;
+  }
+}

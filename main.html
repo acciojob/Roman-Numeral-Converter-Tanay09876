@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roman Numeral Converter</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Convert to Roman</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h2>Roman Numeral Converter</h2>
-    <input type="number" id="numberInput" placeholder="Enter a number (0-100000)" />
-    <button onclick="convertToRoman()">Convert</button>
-    <h3 id="result">Result: </h3>
-  </div>
+
+  <h1>Convert Number to Roman Numerals</h1>
+  <p>Enter a number greater than 0:</p>
+  <input type="number" id="numberInput" placeholder="Enter number" />
+  <br>
+  <button onclick="handleConvert()">Convert</button>
+
+  <div id="result"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
