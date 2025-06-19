@@ -1,37 +1,30 @@
 function convertToRoman(num) {
-  if (num <= 0) return "";
+  	const obj = {
+      0:['M',1000], 
+      1:['D', 500], 
+      2:['C', 100], 
+      3:['L', 50], 
+      4:['X', 10], 
+      5:['V', 5], 
+      6:['I', 1]
+    };
 
-  const romanMap = [
-    ['M', 1000], ['CM', 900],
-    ['D', 500], ['CD', 400],
-    ['C', 100], ['XC', 90],
-    ['L', 50], ['XL', 40],
-    ['X', 10], ['IX', 9],
-    ['V', 5], ['IV', 4],
-    ['I', 1]
-  ];
-
-  let result = "";
-  for (let [roman, value] of romanMap) {
-    while (num >= value) {
-      result += roman;
-      num -= value;
+    let result = '';
+	for (const { val, sym } of romanMap) {
+    while (num >= val) {
+      result += sym;
+      num -= val;
     }
   }
-
   return result;
 }
 
-function handleConvert() {
-  const input = document.getElementById("numberInput").value;
-  const num = parseInt(input);
 
-  const resultDiv = document.getElementById("result");
 
-  if (isNaN(num) || num <= 0) {
-    resultDiv.textContent = "Please enter a valid number greater than 0.";
-  } else {
-    const roman = convertToRoman(num);
-    resultDiv.textContent = `Roman Numeral: ${roman}`;
-  }
-}
+console.log(convertToRoman(36));
+
+
+
+
+// do not edit below this line
+module.exports = convertToRoman
